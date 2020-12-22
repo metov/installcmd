@@ -26,10 +26,10 @@ preferred; in this case the "arch-package-name" will be preferred over
 buster (on other releases, "debian-package-name" will be preferred).
 
 Usage:
-    install-cmd.py (-h|--help)
-    install-cmd.py
-    install-cmd.py update
-    install-cmd.py pkgspec PKG_INFO
+    installcmd (-h|--help)
+    installcmd
+    installcmd update
+    installcmd pkgspec PKG_INFO
 """
 from docopt import docopt
 
