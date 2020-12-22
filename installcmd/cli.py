@@ -33,7 +33,7 @@ Usage:
 """
 from docopt import docopt
 
-from lib import install_command, load_yaml, update_command
+from .lib import install_command, load_yaml, update_command
 
 
 def main():
