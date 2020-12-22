@@ -4,6 +4,9 @@
 
 The main use of this tool is to increase the portability of package installation scripts, such as you might have in a dotfiles repo. 
 
+## Installation
+`pip install .` while in the repo root.
+
 ## Usage
 Print generic install command:
 ```
