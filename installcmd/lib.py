@@ -34,7 +34,7 @@ def install_command(pkg_spec: Dict[str, OS_SPEC] = None) -> str:
     if package is None:
         raise Exception("Could not find valid package name.")
 
-    return package
+    return f'{install} {package}'
 
 
 def update_command() -> str:
