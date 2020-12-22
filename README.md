@@ -50,19 +50,18 @@ The spec is a YAML file defining a tree:
 ```yaml
 name: "generic-package-name"
 Linux:
-    name: "linux-name-of-package"
-    arch:
-        name: "arch-package-name"
-
-    debian:
-        name: "debian-package-name"
-
-        # TODO: Specifying release is currently not supported.
-        buster: "buster-package-name"
-
-    alpine:
-      "3.12":
-        name: "alpine-3.12-name"
+  name: "linux-name-of-package"
+  arch:
+    name: "arch-package-name"
+    
+  debian:
+    name: "debian-package-name"
+    buster: 
+      name: "buster-package-name"
+    
+  alpine:
+    "3.12":
+    name: "alpine-3.12-name"
 ``` 
 
 `installcmd` will descend down this tree and use the value of `name` from the most specific matching node that has a `name`. In the example above:
