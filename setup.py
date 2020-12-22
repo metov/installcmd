@@ -7,7 +7,7 @@ setuptools.setup(
     name="installcmd-metov",
     version="0.1",
     author="Azat Akhmetov",
-    description="git init",
+    description="Print correct command for installing a package.",
     long_description=long_description,
     long_description_content_type="text/markdown",
     url="https://github.com/metov/installcmd",
