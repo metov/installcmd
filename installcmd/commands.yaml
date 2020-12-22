@@ -1,0 +1,12 @@
+Linux:
+  debian:
+    install: "sudo apt-get install"
+    update: "sudo apt-get update"
+
+  arch:
+    install: "sudo pacman -S"
+    update: "sudo pacman -Sy"
+
+  manjaro:
+    install: "sudo pacman -S"
+    update: "sudo pacman -Sy"
