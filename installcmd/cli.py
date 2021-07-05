@@ -47,7 +47,7 @@ def main():
 
     loglvl = args["--log"]
     if loglvl:
-        log.setLevel(logging.getLevelName(loglvl.level.upper()))
+        log.setLevel(logging.getLevelName(loglvl.upper()))
 
     if args["update"]:
         print(update_command())
