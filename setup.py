@@ -2,10 +2,9 @@ from pathlib import Path
 
 import setuptools
 
-
 setuptools.setup(
     name="installcmd-metov",
-    version="0.1.3",
+    version="0.2.0",
     author="Azat Akhmetov",
     description="Print correct command for installing a package.",
     long_description=Path("README.md").read_text(),
@@ -21,7 +20,8 @@ setuptools.setup(
     python_requires=">=3.6",
     install_requires=[
         "coloredlogs",
-        "pyyaml",
         "docopt",
+        "python-dotenv",
+        "pyyaml",
     ],
 )

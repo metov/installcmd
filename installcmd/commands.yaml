@@ -1,4 +1,4 @@
-Linux:
+linux:
   debian:
     install: "sudo apt-get install"
     update: "sudo apt-get update"
