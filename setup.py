@@ -5,7 +5,7 @@ import setuptools
 
 setuptools.setup(
     name="installcmd-metov",
-    version="0.1.1",
+    version="0.1.2",
     author="Azat Akhmetov",
     description="Print correct command for installing a package.",
     long_description=Path("README.md").read_text(),
@@ -19,5 +19,9 @@ setuptools.setup(
         "Operating System :: OS Independent",
     ],
     python_requires=">=3.6",
-    install_requires=["pyyaml", "docopt"],
+    install_requires=[
+        "coloredlogs",
+        "pyyaml",
+        "docopt",
+    ],
 )
