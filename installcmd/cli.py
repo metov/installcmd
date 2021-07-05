@@ -27,9 +27,12 @@ buster (on other releases, "debian-package-name" will be preferred).
 
 Usage:
     installcmd (-h|--help)
-    installcmd
-    installcmd update
-    installcmd pkgspec PKG_INFO
+    installcmd [--log LEVEL]
+    installcmd update [--log LEVEL]
+    installcmd pkgspec PKG_INFO [--log LEVEL]
+
+Options:
+    --log LEVEL  Minimum level of logs to print [default: INFO]
 """
 import logging
 
