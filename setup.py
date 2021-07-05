@@ -12,6 +12,7 @@ setuptools.setup(
     long_description_content_type="text/markdown",
     url="https://github.com/metov/installcmd",
     packages=setuptools.find_packages(),
+    package_data={"": ["commands.yaml"]},
     entry_points={"console_scripts": ["installcmd = installcmd.cli:main"]},
     classifiers=[
         "Programming Language :: Python :: 3",
