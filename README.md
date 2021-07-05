@@ -1,6 +1,8 @@
 # `installcmd`
 
-> Print correct command for installing a package.
+> Cross platform package install commands.
+
+I use a lot of cross platform software. One annoying thing about it is that every platform has its own package manager with a unique install command. What's even worse is that sometimes the packages themselves are listed under slightly different names in different repositories. Installcmd solves this by 
 
 The main use of this tool is to increase the portability of package installation scripts, such as you might have in a dotfiles repo. 
 

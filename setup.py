@@ -3,7 +3,7 @@ from pathlib import Path
 import setuptools
 
 setuptools.setup(
-    name="installcmd-metov",
+    name="installcmd",
     version="0.2.1",
     author="Azat Akhmetov",
     description="Print correct command for installing a package.",
