@@ -31,13 +31,20 @@ Usage:
     installcmd update
     installcmd pkgspec PKG_INFO
 """
+import logging
+
 from docopt import docopt
 
-from .lib import install_command, load_yaml, update_command
+from installcmd import log
+from installcmd.lib import install_command, load_yaml, update_command
 
 
 def main():
     args = docopt(__doc__)
+
+    loglvl = args["--log"]
+    if loglvl:
+        log.setLevel(logging.getLevelName(loglvl.level.upper()))
 
     if args["update"]:
         print(update_command())
