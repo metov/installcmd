@@ -5,7 +5,7 @@ with open("README.md", "r", encoding="utf-8") as fh:
 
 setuptools.setup(
     name="installcmd-metov",
-    version="0.1",
+    version="0.1.1",
     author="Azat Akhmetov",
     description="Print correct command for installing a package.",
     long_description=long_description,
