@@ -4,7 +4,7 @@ from typing import Dict, Union, List
 
 import yaml
 
-from installcmd import log
+from installcmd import log, linux
 
 RELEASE_SPEC = Dict[str, str]
 DISTRO_SPEC = Dict[str, Union[str, RELEASE_SPEC]]
@@ -69,7 +69,7 @@ def apply_spec(spec: Dict[str, OS_SPEC], key: str) -> str:
     to be OS-agnostic.
     """
     # Try looking for successively less qualified commands
-    path = [platform.uname().system, distro_name(), platform.uname().release]
+    path = [os_name(), distro_name(), platform.uname().release]
     while path:
         str_path = "/".join(path)
         release_cmd = dict_get_path(spec, path + [key])
@@ -85,9 +85,19 @@ def apply_spec(spec: Dict[str, OS_SPEC], key: str) -> str:
     return None
 
 
+def os_name():
+    # In Docker containers, uname returns host's OS name
+    if linux.is_linux():
+        return "linux"
+    else:
+        return platform.uname().system
+
+
 def distro_name():
-    # Doesn't work on Docker - instead, if Linux, check /etc/os-release
-    return platform.uname().node
+    if linux.is_linux():
+        return linux.distro_name()
+    else:
+        return platform.uname().node
 
 
 def dict_get_path(d: dict, key_path: List[str]):

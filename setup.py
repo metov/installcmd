@@ -2,7 +2,6 @@ from pathlib import Path
 
 import setuptools
 
-
 setuptools.setup(
     name="installcmd-metov",
     version="0.2.0",
@@ -21,7 +20,8 @@ setuptools.setup(
     python_requires=">=3.6",
     install_requires=[
         "coloredlogs",
-        "pyyaml",
         "docopt",
+        "python-dotenv",
+        "pyyaml",
     ],
 )
