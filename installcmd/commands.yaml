@@ -3,6 +3,10 @@ linux:
     install: "apt-get install"
     update: "apt-get update"
 
+  ubuntu:
+    install: "apt-get install"
+    update: "apt-get update"
+
   arch:
     install: "pacman -S"
     update: "pacman -Sy"
