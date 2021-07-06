@@ -22,6 +22,6 @@ $ $(installcmd) package-name
 $ $(installcmd pkgspec docker.yaml)
 ```
 
-It's not magic. It searches through a built-in list of commands for various platforms (see [contribution guide](src/contributing.md)). The package name specs have to be provided by you (see [package specs](src/pkgspec.md)).
+It's not magic. It searches through a built-in list of commands for various platforms (see [contribution guide](doc/contributing.md)). The package name specs have to be provided by you (see [package specs](doc/pkgspec.md)).
 
 The main use of this is writing portable installation scripts, such as in your dotfiles repo or Dockerfiles. You can let installcmd handle the platform detection logic instead of having to reimplement it again and again, which makes the scripts a lot cleaner.
