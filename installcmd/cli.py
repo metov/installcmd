@@ -56,4 +56,4 @@ def main():
     elif args["pkgspec"]:
         print(install_command(load_yaml(args["YAML_FILE"])))
     else:
-        print(install_command())
+        print(simple_command("install"))
