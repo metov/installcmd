@@ -43,7 +43,7 @@ import logging
 from docopt import docopt
 
 from installcmd import log
-from installcmd.lib import install_command, load_yaml, simple_command
+from installcmd.lib import install_pkg_command, load_yaml, simple_command
 
 
 def main():
@@ -58,6 +58,6 @@ def main():
     elif args["noninteractive"]:
         print(simple_command("noninteractive"))
     elif args["pkgspec"]:
-        print(install_command(load_yaml(args["YAML_FILE"])))
+        print(install_pkg_command(load_yaml(args["YAML_FILE"])))
     else:
         print(simple_command("install"))
