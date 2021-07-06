@@ -1,0 +1,12 @@
+# Docker is https://www.docker.com/
+# It's usually called this
+name: docker
+
+linux:
+  debian:
+    # Debian renamed it due to a naming conflict: https://packages.debian.org/search?keywords=docker.io
+    name: docker.io
+
+  ubuntu:
+    # Same as debian
+    name: docker.io
