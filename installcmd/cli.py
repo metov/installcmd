@@ -41,7 +41,7 @@ import logging
 from docopt import docopt
 
 from installcmd import log
-from installcmd.lib import install_command, load_yaml, refresh_command
+from installcmd.lib import install_command, load_yaml, simple_command
 
 
 def main():
@@ -52,7 +52,7 @@ def main():
         log.setLevel(logging.getLevelName(loglvl.upper()))
 
     if args["refresh"]:
-        print(refresh_command())
+        print(simple_command("refresh"))
     elif args["pkgspec"]:
         print(install_command(load_yaml(args["YAML_FILE"])))
     else:
