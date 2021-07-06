@@ -4,7 +4,7 @@ import setuptools
 
 setuptools.setup(
     name="installcmd",
-    version="0.3.0",
+    version="0.3.1",
     author="Azat Akhmetov",
     description="Print correct command for installing a package.",
     long_description=Path("README.md").read_text(),
