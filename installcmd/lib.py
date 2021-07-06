@@ -40,7 +40,7 @@ def install_command(pkg_spec: Dict[str, OS_SPEC] = None) -> str:
     return f"{install} {package}"
 
 
-def update_command() -> str:
+def refresh_command() -> str:
     """
     Return correct update (refresh package cache) command for this system. If spec
     fails to match any commands at all, will crash.
@@ -49,7 +49,7 @@ def update_command() -> str:
     """
 
     cmd_spec = load_yaml(Path(__file__).parent / "commands.yaml")
-    update = apply_spec(cmd_spec, "update")
+    update = apply_spec(cmd_spec, "refresh")
     if update is None:
         raise Exception("Could not find valid update command.")
 
