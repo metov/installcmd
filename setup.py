@@ -3,8 +3,8 @@ from pathlib import Path
 import setuptools
 
 setuptools.setup(
-    name="installcmd-metov",
-    version="0.2.0",
+    name="installcmd",
+    version="0.2.1",
     author="Azat Akhmetov",
     description="Print correct command for installing a package.",
     long_description=Path("README.md").read_text(),
