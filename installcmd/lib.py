@@ -46,7 +46,7 @@ def simple_command(cmd_name: str) -> str:
     all, will exit with non-zero code.
     """
     cmd_spec = load_yaml(Path(__file__).parent / "commands.yaml")
-    command = apply_spec(cmd_spec, "refresh")
+    command = apply_spec(cmd_spec, cmd_name)
     if command is None:
         log.error(f"Could not find valid {cmd_name} command.")
 
