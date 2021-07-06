@@ -1,16 +1,20 @@
 linux:
   debian:
     install: "apt-get install"
+    noninteractive: "apt-get --assume-yes"
     refresh: "apt-get update"
 
   ubuntu:
     install: "apt-get install"
+    noninteractive: "apt-get --assume-yes"
     refresh: "apt-get update"
 
   arch:
     install: "pacman -S"
+    noninteractive: "pacman -S --no-confirm"
     refresh: "pacman -Sy"
 
   manjaro:
     install: "pacman -S"
+    noninteractive: "pacman -S --no-confirm"
     refresh: "pacman -Sy"

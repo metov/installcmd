@@ -5,6 +5,7 @@ purpose of this is portability of install scripts across systems.
 Supported commands:
 * No argument -- prints install command eg. apt-get install
 * refresh -- update package cache refresh command eg. apt-get update
+* noninteractive -- answer all prompts yes eg. apt-get install -y
 * pkgspec -- command to install specific package based on a YAML spec (see below)
 
 For pkgspec, you need to pass the path to a package spec in YAML format with the
@@ -31,6 +32,7 @@ Usage:
     installcmd (-h|--help)
     installcmd [options]
     installcmd refresh [options]
+    installcmd noninteractive [options]
     installcmd pkgspec YAML_PATH [options]
 
 Options:
@@ -41,7 +43,7 @@ import logging
 from docopt import docopt
 
 from installcmd import log
-from installcmd.lib import install_command, load_yaml, simple_command
+from installcmd.lib import install_pkg_command, load_yaml, simple_command
 
 
 def main():
@@ -53,7 +55,9 @@ def main():
 
     if args["refresh"]:
         print(simple_command("refresh"))
+    elif args["noninteractive"]:
+        print(simple_command("noninteractive"))
     elif args["pkgspec"]:
-        print(install_command(load_yaml(args["YAML_FILE"])))
+        print(install_pkg_command(load_yaml(args["YAML_FILE"])))
     else:
         print(simple_command("install"))

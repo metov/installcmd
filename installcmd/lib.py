@@ -11,16 +11,12 @@ DISTRO_SPEC = Dict[str, Union[str, RELEASE_SPEC]]
 OS_SPEC = Dict[str, Union[str, DISTRO_SPEC]]
 
 
-def install_command(pkg_spec: Dict[str, OS_SPEC] = None) -> str:
+def install_pkg_command(pkg_spec: Dict[str, OS_SPEC]) -> str:
     """
-    Return correct install command for this system. If package spec is given, will
-    also attempt to select appropriate package name from the spec. Otherwise will
-    only return the install command.
+    Return correct command for installing a package on this system, according to the
+    given spec. If it can't find a common, will exit with non-zero exit code.
 
-    If either spec fails to match any commands/names at all, will crash.
-
-    :param pkg_spec: A parsed package spec (optional)
-    :return: Correct install command for this system.
+    :param pkg_spec: A parsed package spec
     """
 
     cmd_spec = load_yaml(Path(__file__).parent / "commands.yaml")
@@ -28,9 +24,6 @@ def install_command(pkg_spec: Dict[str, OS_SPEC] = None) -> str:
     if install is None:
         log.error(f"No known install command for this platform")
         exit(1)
-
-    if pkg_spec is None:
-        return install
 
     # If package spec is given, handle that as well
     package = apply_spec(pkg_spec, "name")
@@ -46,7 +39,7 @@ def simple_command(cmd_name: str) -> str:
     all, will exit with non-zero code.
     """
     cmd_spec = load_yaml(Path(__file__).parent / "commands.yaml")
-    command = apply_spec(cmd_spec, "refresh")
+    command = apply_spec(cmd_spec, cmd_name)
     if command is None:
         log.error(f"Could not find valid {cmd_name} command.")
 
