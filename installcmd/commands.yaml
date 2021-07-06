@@ -11,10 +11,10 @@ linux:
 
   arch:
     install: "pacman -S"
-    noninteractive: "pacman -S --no-confirm"
+    noninteractive: "pacman -S --noconfirm"
     refresh: "pacman -Sy"
 
   manjaro:
     install: "pacman -S"
-    noninteractive: "pacman -S --no-confirm"
+    noninteractive: "pacman -S --noconfirm"
     refresh: "pacman -Sy"
