@@ -55,7 +55,7 @@ def simple_command(cmd_name: str) -> str:
 
 def apply_spec(spec: Dict[str, OS_SPEC], key: str) -> str:
     """
-    Read OS, distribution and release.
+    Search through spec and return most specific matching value, if any.
 
     The implementation uses os/distro/release terminology, which is Linux-specific.
     However we are actually calling Python's platfrom uname, node and release which

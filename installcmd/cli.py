@@ -11,7 +11,7 @@ For pkgspec, you need to pass the path to a package spec in YAML format with the
 following structure:
 
     name: "generic-package-name"
-    Linux:
+    linux:
         name: "linux-name-of-package"
         arch:
             name: "arch-package-name"
