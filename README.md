@@ -10,7 +10,7 @@ Install with: `pip install installcmd`
 ## Usage
 
 * `installcmd` prints the install command, eg.: `apt-get install`
-* `installcmd update` prints the package cache update command, eg.: `apt-get update`
+* `installcmd refresh` prints the package cache update command, eg.: `apt-get update`
 * `installcmd pkgspec foo.yml` prints the correct name of the package for that platform, based on information in the `foo.yml`.
 
 Installcmd just prints the command, but it's easy to make your shell execute it:

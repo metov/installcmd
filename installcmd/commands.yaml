@@ -1,16 +1,16 @@
 linux:
   debian:
     install: "apt-get install"
-    update: "apt-get update"
+    refresh: "apt-get update"
 
   ubuntu:
     install: "apt-get install"
-    update: "apt-get update"
+    refresh: "apt-get update"
 
   arch:
     install: "pacman -S"
-    update: "pacman -Sy"
+    refresh: "pacman -Sy"
 
   manjaro:
     install: "pacman -S"
-    update: "pacman -Sy"
+    refresh: "pacman -Sy"

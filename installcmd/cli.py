@@ -2,10 +2,12 @@
 Print the correct command for installing a package on the current system. The main
 purpose of this is portability of install scripts across systems.
 
-With no arguments, prints install command (eg. "sudo apt install") so you can
-concatenate the package name yourself.
+Supported commands:
+* No argument -- prints install command eg. apt-get install
+* refresh -- update package cache refresh command eg. apt-get update
+* pkgspec -- command to install specific package based on a YAML spec (see below)
 
-If you pass a filename, it is assumed to be a package spec in YAML format with the
+For pkgspec, you need to pass the path to a package spec in YAML format with the
 following structure:
 
     name: "generic-package-name"
@@ -27,9 +29,9 @@ buster (on other releases, "debian-package-name" will be preferred).
 
 Usage:
     installcmd (-h|--help)
-    installcmd [--log LEVEL]
-    installcmd update [--log LEVEL]
-    installcmd pkgspec PKG_INFO [--log LEVEL]
+    installcmd [options]
+    installcmd refresh [options]
+    installcmd pkgspec YAML_PATH [options]
 
 Options:
     --log LEVEL  Minimum level of logs to print [default: INFO]
@@ -39,7 +41,7 @@ import logging
 from docopt import docopt
 
 from installcmd import log
-from installcmd.lib import install_command, load_yaml, update_command
+from installcmd.lib import install_command, load_yaml, simple_command
 
 
 def main():
@@ -49,9 +51,9 @@ def main():
     if loglvl:
         log.setLevel(logging.getLevelName(loglvl.upper()))
 
-    if args["update"]:
-        print(update_command())
+    if args["refresh"]:
+        print(simple_command("refresh"))
     elif args["pkgspec"]:
-        print(install_command(load_yaml(args["PKG_INFO"])))
+        print(install_command(load_yaml(args["YAML_FILE"])))
     else:
-        print(install_command())
+        print(simple_command("install"))
