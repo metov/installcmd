@@ -1,12 +1,12 @@
 linux:
   debian:
     install: "apt-get install"
-    noninteractive: "apt-get --assume-yes"
+    noninteractive: "apt-get install --assume-yes"
     refresh: "apt-get update"
 
   ubuntu:
     install: "apt-get install"
-    noninteractive: "apt-get --assume-yes"
+    noninteractive: "apt-get install --assume-yes"
     refresh: "apt-get update"
 
   arch:
