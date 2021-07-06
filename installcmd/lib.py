@@ -68,8 +68,9 @@ def apply_spec(spec: Dict[str, OS_SPEC], key: str) -> str:
     # Try looking for successively less qualified commands
     path = [os_name(), distro_name(), platform.uname().release]
     while path:
-        str_path = "/".join(path)
-        release_cmd = dict_get_path(spec, path + [key])
+        full_path = path + [key]
+        str_path = "/".join(full_path)
+        release_cmd = dict_get_path(spec, full_path)
         if release_cmd:
             log.info(f'Found "{release_cmd}" at {str_path}')
             return release_cmd
