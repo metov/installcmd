@@ -11,7 +11,7 @@ Install with: `pip install installcmd`
 
 * `installcmd` prints the install command, eg.: `apt-get install`
 * `installcmd refresh` prints the package cache update command, eg.: `apt-get update`
-* `installcmd refresh` prints the non-interactive install command, eg.: `apt-get install --assume-yes`
+* `installcmd noninteractive` prints the non-interactive install command, eg.: `apt-get install --assume-yes`
 * `installcmd pkgspec foo.yml` prints the correct name of the package for that platform, based on information in the `foo.yml`.
 
 Installcmd just prints the command, but it's easy to make your shell execute it:
