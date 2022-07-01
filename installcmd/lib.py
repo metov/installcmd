@@ -1,9 +1,9 @@
 import platform
 from pathlib import Path
-from typing import Dict, Union, List
+from typing import Dict, List, Union
 
-from metovlogs import get_log
 import yaml
+from metovlogs import get_log
 
 from installcmd import BASE_SPEC_PATH, OVERRIDES_PATH, linux, mac
 
