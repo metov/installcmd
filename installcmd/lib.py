@@ -110,7 +110,7 @@ def dict_get_path(d: dict, key_path: List[str]):
     return d
 
 
-def load_yaml(yaml_path: str):
+def load_yaml(yaml_path: Path):
     with open(yaml_path) as f:
         y = yaml.safe_load(f)
     return y
