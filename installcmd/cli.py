@@ -38,6 +38,7 @@ Usage:
     installcmd [options]
     installcmd refresh [options]
     installcmd noninteractive [options]
+    installcmd query [options]
     installcmd pkgspec YAML_PATH [options]
     installcmd generate-overrides
 
@@ -67,6 +68,8 @@ def main():
         print(simple_command("refresh"))
     elif args["noninteractive"]:
         print(simple_command("noninteractive"))
+    elif args["query"]:
+        print(simple_command("query"))
     elif args["pkgspec"]:
         print(install_pkg_command(load_yaml(args["YAML_FILE"])))
     elif args["generate-overrides"]:
