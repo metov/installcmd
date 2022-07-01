@@ -28,6 +28,10 @@ preferred; in this case the "arch-package-name" will be preferred over
 "generic-package-name" on Arch and "buster-package-name" will be preferred on Debian
 buster (on other releases, "debian-package-name" will be preferred).
 
+You can also configure overrides for certain commands by editing
+~/.config/installcmd/overrides.yml. This has the same syntax as the package's own
+commands.yaml file - indeed, it gets merged on top of that dictionary.
+
 Usage:
     installcmd (-h|--help)
     installcmd [options]

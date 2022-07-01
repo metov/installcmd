@@ -5,7 +5,7 @@ from typing import Dict, Union, List
 from metovlogs import get_log
 import yaml
 
-from installcmd import linux, mac
+from installcmd import OVERRIDES_PATH, linux, mac
 
 log = get_log(__name__)
 
@@ -22,7 +22,7 @@ def install_pkg_command(pkg_spec: Dict[str, OS_SPEC]) -> str:
     :param pkg_spec: A parsed package spec
     """
 
-    cmd_spec = load_yaml(Path(__file__).parent / "commands.yaml")
+    cmd_spec = load_spec_with_overrides()
     install = apply_spec(cmd_spec, "install")
     if install is None:
         log.error(f"No known install command for this platform")
@@ -41,7 +41,7 @@ def simple_command(cmd_name: str) -> str:
     Return requested command for this platform. If spec fails to match any commands at
     all, will exit with non-zero code.
     """
-    cmd_spec = load_yaml(Path(__file__).parent / "commands.yaml")
+    cmd_spec = load_spec_with_overrides()
     command = apply_spec(cmd_spec, cmd_name)
     if command is None:
         log.error(f"Could not find valid {cmd_name} command.")
@@ -110,7 +110,28 @@ def dict_get_path(d: dict, key_path: List[str]):
     return d
 
 
-def load_yaml(yaml_path: Path):
+def load_spec_with_overrides():
+    spec = load_yaml(Path(__file__).parent / "commands.yaml")
+
+    if OVERRIDES_PATH.exists():
+        log.debug(f"Loading overrides from {OVERRIDES_PATH}")
+        overrides = load_yaml(OVERRIDES_PATH)
+        merge_dicts(spec, overrides)
+    else:
+        log.debug(f"No overrides file at {OVERRIDES_PATH}")
+
+    return spec
+
+
+def merge_dicts(d1, d2):
+    for k, v in d2.items():
+        if isinstance(v, dict):
+            merge_dicts(d1.setdefault(k, {}), d2[k])
+        else:
+            d1[k] = d2[k]
+
+
+def load_yaml(yaml_path: Path) -> dict:
     with open(yaml_path) as f:
         y = yaml.safe_load(f)
     return y
