@@ -41,9 +41,11 @@ Options:
 import logging
 
 from docopt import docopt
+from metovlogs import get_log
 
-from installcmd import log
 from installcmd.lib import install_pkg_command, load_yaml, simple_command
+
+log = get_log(__name__)
 
 
 def main():
