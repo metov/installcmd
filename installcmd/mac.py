@@ -33,7 +33,7 @@ def is_brew():
 
     TODO: Handle corner cases as they arise.
     """
-    res = subprocess.run(["brew", "--version"])
+    res = subprocess.run(["brew", "--version"], capture_output=True)
 
     if res.returncode != 0:
         return False
