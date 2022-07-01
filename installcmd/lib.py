@@ -5,7 +5,7 @@ from typing import Dict, Union, List
 from metovlogs import get_log
 import yaml
 
-from installcmd import OVERRIDES_PATH, linux, mac
+from installcmd import BASE_SPEC_PATH, OVERRIDES_PATH, linux, mac
 
 log = get_log(__name__)
 
@@ -111,7 +111,7 @@ def dict_get_path(d: dict, key_path: List[str]):
 
 
 def load_spec_with_overrides():
-    spec = load_yaml(Path(__file__).parent / "commands.yaml")
+    spec = load_yaml(BASE_SPEC_PATH)
 
     if OVERRIDES_PATH.exists():
         log.debug(f"Loading overrides from {OVERRIDES_PATH}")
