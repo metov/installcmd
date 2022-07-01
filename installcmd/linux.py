@@ -1,9 +1,9 @@
 """
 Linux-specifc OS detection methods.
 """
-import dotenv
 from pathlib import Path
 
+import dotenv
 from metovlogs import get_log
 
 log = get_log(__name__)
