@@ -38,7 +38,7 @@ def is_brew():
     if res.returncode != 0:
         return False
 
-    if "Homebrew" not in res.stdout.decode().lower():
+    if "Homebrew" not in res.stdout.decode():
         return False
 
     return True
