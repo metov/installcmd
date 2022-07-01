@@ -13,6 +13,7 @@ linux:
     install: "pacman -S"
     noninteractive: "pacman -S --noconfirm"
     refresh: "pacman -Sy"
+    query: "pacman -Q"
 
   manjaro:
     install: "pacman -S"
