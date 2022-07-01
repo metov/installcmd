@@ -3,21 +3,25 @@ linux:
     install: "apt-get install"
     noninteractive: "apt-get install --assume-yes"
     refresh: "apt-get update"
+    query: "dpkg -Q"
 
   ubuntu:
     install: "apt-get install"
     noninteractive: "apt-get install --assume-yes"
     refresh: "apt-get update"
+    query: "dpkg -Q"
 
   arch:
     install: "pacman -S"
     noninteractive: "pacman -S --noconfirm"
     refresh: "pacman -Sy"
+    query: "pacman -Q"
 
   manjaro:
     install: "pacman -S"
     noninteractive: "pacman -S --noconfirm"
     refresh: "pacman -Sy"
+    query: "pacman -Q"
 
 mac:
   # We don't really have distros on Mac (nor default package managers), so we
@@ -27,3 +31,4 @@ mac:
   brew:
     install: "brew install"
     refresh: "brew update"
+    query: "brew ls --versions"
