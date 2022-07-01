@@ -3,7 +3,10 @@ Linux-specifc OS detection methods.
 """
 import dotenv
 from pathlib import Path
-from installcmd import log
+
+from metovlogs import get_log
+
+log = get_log(__name__)
 
 
 def osrel():

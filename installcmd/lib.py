@@ -2,9 +2,12 @@ import platform
 from pathlib import Path
 from typing import Dict, Union, List
 
+from metovlogs import get_log
 import yaml
 
-from installcmd import log, linux, mac
+from installcmd import linux, mac
+
+log = get_log(__name__)
 
 RELEASE_SPEC = Dict[str, str]
 DISTRO_SPEC = Dict[str, Union[str, RELEASE_SPEC]]

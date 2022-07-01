@@ -21,6 +21,7 @@ setuptools.setup(
     install_requires=[
         "coloredlogs",
         "docopt",
+        "metovlogs",
         "python-dotenv",
         "pyyaml",
     ],

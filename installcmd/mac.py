@@ -4,7 +4,9 @@ Mac-specifc OS detection methods.
 import platform
 import subprocess
 
-from installcmd import log
+from metovlogs import get_log
+
+log = get_log(__name__)
 
 
 def is_mac():
