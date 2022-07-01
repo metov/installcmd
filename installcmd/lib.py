@@ -4,7 +4,7 @@ from typing import Dict, Union, List
 
 import yaml
 
-from installcmd import log, linux
+from installcmd import log, linux, mac
 
 RELEASE_SPEC = Dict[str, str]
 DISTRO_SPEC = Dict[str, Union[str, RELEASE_SPEC]]
@@ -80,6 +80,8 @@ def os_name():
     # In Docker containers, uname returns host's OS name
     if linux.is_linux():
         return "linux"
+    elif mac.is_mac():
+        return "mac"
     else:
         return platform.uname().system
 
@@ -87,6 +89,8 @@ def os_name():
 def distro_name():
     if linux.is_linux():
         return linux.distro_name()
+    elif mac.is_mac():
+        return mac.package_manager()
     else:
         return platform.uname().node
 
