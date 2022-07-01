@@ -31,3 +31,4 @@ mac:
   brew:
     install: "brew install"
     refresh: "brew update"
+    query: "brew ls --versions"
